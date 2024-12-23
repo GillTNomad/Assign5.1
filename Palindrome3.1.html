@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <br>
+    <br>
+    <nav>
+        <h2>Navigation</h2>
+        <a href="./index.html">Home</a>        <a href="./boards.html">Boards</a>        <a href="./table.html">Table</a>        <a href="./meme.html">Meme</a>       <a href="./crapsgame.html">CrapsGame</a>       <a href="./stringsUserInput.html">User Input</a>        <a href="./eventdriven.html">Event Driven</a><br>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker</title>
+    <link rel="stylesheet" href="palindrome3.1.css">
+    <h1>SIMPLE PALINDROME CHECKER</h1>
+</head>
+<body>
+    <p>ENTER A WORD IN THE BOX BELOW <br>
+        THAT YOU THINK IS A PALINDROME:</p>
+    <input type="text" id="inputString" placeholder="Type a word or phrase">
+    <button onclick="checkPalindrome()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        function isPalindrome(str) {
+            const cleanedStr = Array.from(str).filter(char => /[a-zA-Z0-9]/.test(char)).join('').toLowerCase();
+            return cleanedStr === cleanedStr.split('').reverse().join('');
+        }
+
+        function checkPalindrome() {
+            const input = document.getElementById('inputString').value;
+            const result = document.getElementById('result');
+            if (input.trim() === "") {
+                result.textContent = "Please enter a valid string.";
+                return;
+            }
+            if (isPalindrome(input)) {
+                result.textContent = `Yes, '${input}' is a palindrome!`;
+            } else {
+                result.textContent = `No, '${input}' is not a palindrome.`;
+            }
+        }
+    </script>
+</body>
+<footer>
+    Terry Gill<br>
+    University of Advancing Technology<br>
+    2625 W Baseline Rd<br>
+    Tempe, AZ 85283<br>
+</footer>
+</html>

@@ -1,0 +1,54 @@
+body {
+    background-image: url('tacocat.jpg');
+    background-size: cover; /* covers the entire screen */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; 
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+    color:black;
+    text-shadow: 2px 2px 4px yellow; /* Add shadow for better readability */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 60px; 
+    margin-bottom: 16px;
+    color: black;
+    text-shadow: 2px 2px 4px white; /* Add shadow for better readability */
+}
+
+p {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color:black;
+    text-shadow: 2px 2px 4px rgba(247, 238, 238, 0.5);
+    margin-bottom: 32px;
+    text-align: center;
+}
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+    margin-top: 20px;
+}
+
+footer br {
+    display: block;
+}
+nav {
+    background: #fefefe;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/*I used some videos on youtube to help me center and make the text visable */

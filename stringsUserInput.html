@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h2>Navigation</h2>
+        <a href="./index.html">Home</a> <a href="./boards.html">Boards</a>        <a href="./table.html">Table</a>        <a href="./meme.html">Meme</a>       <a href="./crapsgame.html">CrapsGame</a>       <a href="./stringsUserInput.html">User Input</a>        <a href="./eventdriven.html">Event Driven</a><br>
+    </nav>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome Checker User Input Validation</title>
+    <link rel="stylesheet" href="userinput.css">
+</head>
+<body>
+    <h1>SIMPLE PALINDROME CHECKER</h1>
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" placeholder="Enter your first name"><br>
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" placeholder="Enter your last name"><br>
+    <label for="zipCode">Zip Code:</label>
+    <input type="text" id="zipCode" placeholder="Enter your zip code"><br>
+    <p>ENTER A WORD IN THE BOX BELOW <br> THAT YOU THINK IS A PALINDROME:</p>
+    <input type="text" id="inputString" placeholder="Type a word or phrase"><br>
+    <button onclick="validateInputsAndCheckPalindrome()">Check</button>
+    <p id="result" aria-live="polite"></p>
+
+    <script>
+        function isPalindrome(str) {
+            const cleanedStr = Array.from(str).filter(char => /[a-zA-Z0-9]/.test(char)).join('').toLowerCase();
+            return cleanedStr === cleanedStr.split('').reverse().join('');
+        }
+
+        function validateInputsAndCheckPalindrome() {
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const zipCode = document.getElementById('zipCode').value.trim();
+            const inputString = document.getElementById('inputString').value.trim();
+            const result = document.getElementById('result');
+
+            // Combine first and last names//
+            const fullName = firstName + ' ' + lastName;
+
+            // Validate name length//
+            if (fullName.length > 20) {
+                result.textContent = "Your full name must be 20 characters or less.";
+                return;
+            }
+
+            // Validate zip code//
+            if (zipCode.length !== 5 || ![...zipCode].every(char => char >= '0' && char <= '9')) {
+            result.textContent = "Please enter a valid 5-digit zip code.";
+            return;
+            }
+
+            // Validate palindrome input if you dont enter all the info message displays//
+            if (inputString === "") {
+                result.textContent = "Please read carefully and enter valid info.";
+                return;
+            }
+
+            // Check if the input is a palindrome refers back to aria-live="polite to display messages//
+            if (isPalindrome(inputString)) {
+                result.textContent = `Yes, '${inputString}' is a palindrome! You have made TACOCAT HAPPY, ${fullName}!`;
+            } else {
+                result.textContent = `No, '${inputString}' is not a palindrome and have Displeased TACOCAT.`;
+            }
+        }
+    </script>
+</body>
+<footer>
+    Terry Gill<br>
+    University of Advancing Technology<br>
+    2625 W Baseline Rd<br>
+    Tempe, AZ 85283<br>
+</footer>
+</html>
